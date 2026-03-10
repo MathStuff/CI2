@@ -14,7 +14,7 @@ import tempfile
 import json
 from unittest.mock import MagicMock
 
-from data.scripts.spl_data.spl_checkouts_last_year import main
+from data.scripts.spl_data.spl_checkout_data import main
 from tests.test_isbn_constants import (
     VALID_ISBN10,
     VALID_ISBN13_NO_10,
