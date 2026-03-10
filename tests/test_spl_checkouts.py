@@ -127,23 +127,15 @@ class EdgeCaseTestsSPLCheckouts(SPLCheckoutsTestHelpers):
         fake_keys = [k for k in data.keys() if k.startswith("FAKE")]
         self.assertEqual(len(fake_keys), 1)
 
-    def test_empty_api_returns_empty_json(self):
-        """Empty API responses produce empty output JSON files."""
+    def test_empty_api_returns_raise_value_error(self):
+        """Empty API responses produce Raises ValueError."""
         client = self.build_mock_client([[], []])
-
-        main(
-            output_isbn_index=self.temp_isbn.name,
-            output_title_author_index=self.temp_title_author.name,
-            client=client
-        )
-
-        with open(self.temp_isbn.name) as f:
-            data = json.load(f)
-        self.assertEqual(data, {})
-
-        with open(self.temp_title_author.name) as f:
-            data2 = json.load(f)
-        self.assertEqual(data2, {})
+        with self.assertRaises(ValueError):
+            main(
+                output_isbn_index=self.temp_isbn.name,
+                output_title_author_index=self.temp_title_author.name,
+                client=client
+            )
 
     def test_pagination_combines_chunks(self):
         """Results from multiple paginated API responses are combined correctly."""
