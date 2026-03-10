@@ -18,7 +18,7 @@ from unittest.mock import MagicMock
 
 from data.scripts.spl_data.spl_catalog_data import main
 from data.scripts.spl_data.spl_helper_functions.extract_10_digit_isbn import extract_isbn10
-from tests.sample_data.test_isbn_constants import (
+from tests.sample_data.isbn_constants import (
     VALID_ISBN10,
     VALID_ISBN13,
     VALID_ISBN13_NO_10,
