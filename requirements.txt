@@ -1,0 +1,15 @@
+# Project dependencies
+# Last updated: 2026-03-09
+
+pandas
+numpy
+scipy
+requests
+python-dotenv
+isbnlib
+sodapy
+
+# Development tools
+pylint==4.0.4
+pytest
+build
